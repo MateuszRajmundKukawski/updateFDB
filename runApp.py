@@ -1,9 +1,13 @@
 import sys, os
 from PyQt4 import QtCore, QtGui
 
-from updateFDB_Ui import Ui_UpdateDatabase
-import fdbTools  as fdbt
-from fdbTools import DbTool
+#from mrkdbtools.updateFDB_Ui import Ui_UpdateDatabase
+#from mrkdbtools.updateFDB_Ui import Ui_UpdateDatabase
+
+from mrkdbtools.updateFDB_Ui import Ui_UpdateDatabase
+import mrkdbtools.fdbTools as fdbt
+from  mrkdbtools.fdbTools import DbTool
+
 
 class MyApp(QtGui.QMainWindow):
 
