@@ -15,6 +15,8 @@ class MyApp(QtGui.QMainWindow):
         self.my_init()
         
     def my_init(self):
+        
+        
         self.sql_file_name = None
         QtCore.QObject.connect(self.ui.setDatabse_Button, QtCore.SIGNAL('clicked()'), self.getDBFileName)
         QtCore.QObject.connect(self.ui.testSelectButton, QtCore.SIGNAL('clicked()'), self.validSelect)
@@ -58,10 +60,12 @@ class MyApp(QtGui.QMainWindow):
         
         work_fbd = DbTool(str(self.full_file_db_path))
         work_fbd.dbConnection()
+        
         if self.ui.r1.isChecked():
             work_fbd.execute_select(str(self.SELECT))
         elif self.ui.r2.isChecked():
             work_fbd.executeSqlFile(str(self.full_file_sql_path))
+            
         work_fbd.close_connection()
         
         
