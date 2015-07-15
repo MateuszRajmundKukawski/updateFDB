@@ -32,6 +32,7 @@ class MyApp(QtGui.QMainWindow):
         self.ui.database_name_Label.setText(old_lebel_text+file_base_name)
         
     def getSqlFileName(self):
+        
         self.full_file_sql_path = QtGui.QFileDialog.getOpenFileName(self, 'Open SqlFile', 'E:/', '*.sql', )
         file_sql_base_name = os.path.basename(str(self.full_file_sql_path))
         old_lebel_text =  self.ui.sqlFileLabel.text()
@@ -44,6 +45,8 @@ class MyApp(QtGui.QMainWindow):
         print self.ui.r1.isChecked()
 
     def runUpdate(self):
+        
+        
         fdbcon, fdbcur = fdbt.connecFirebird(str(self.full_file_db_path))
         if self.ui.r1.isChecked():            
             fdbt.execute_select(str(self.SELECT), fdbcon, fdbcur )
