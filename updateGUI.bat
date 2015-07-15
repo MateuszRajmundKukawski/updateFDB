@@ -1,0 +1,1 @@
+pyuic4 updateFDB.ui > updateFDB_Ui.py
