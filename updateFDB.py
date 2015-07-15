@@ -3,7 +3,7 @@ from PyQt4 import QtCore, QtGui
 
 from updateFDB_Ui import Ui_UpdateDatabase
 import fdbTools  as fdbt
-from PyQt4.Qt import QString
+
 
 class MyApp(QtGui.QMainWindow):
 
@@ -49,6 +49,7 @@ class MyApp(QtGui.QMainWindow):
             fdbt.execute_select(str(self.SELECT), fdbcon, fdbcur )
         else:
             fdbt.executeSqlFile(str(self.full_file_sql_path), fdbcon, fdbcur)
+        fdbt.close_conn(fdbcon)
 
 
 

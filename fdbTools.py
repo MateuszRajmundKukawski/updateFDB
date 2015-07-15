@@ -1,4 +1,3 @@
-import os
 import re
 import fdb
 
@@ -28,10 +27,12 @@ def executeSqlFile(sql_file_name, con, cur):
         for row in sql_query_list:
             execute_select(row, con, cur)
 
-
+def close_conn(con):
+    con.close()
 
 if __name__ == '__main__':
     test_db = '1815035.FDB'
     sqlfile = 'myquery.sql'
     mycon, mycur = connecFirebird(test_db)
     executeSqlFile(sqlfile, mycon, mycur)
+    close_conn(mycon)
