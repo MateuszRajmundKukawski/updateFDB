@@ -3,6 +3,7 @@ from PyQt4 import QtCore, QtGui
 
 from updateFDB_Ui import Ui_UpdateDatabase
 import fdbTools  as fdbt
+from PyQt4.Qt import QString
 
 class MyApp(QtGui.QMainWindow):
 
@@ -18,7 +19,7 @@ class MyApp(QtGui.QMainWindow):
 
     def getFileName(self):
 
-        self.full_file_path = QtGui.QFileDialog.getOpenFileName(self, 'Open DataBase', '*.fdb')
+        self.full_file_path = QtGui.QFileDialog.getOpenFileName(self, 'Open DataBase', 'E:/', '*.fdb', )
         file_base_name = os.path.basename(str(self.full_file_path))
         self.ui.database_name_Label.setText('DataBase: '+file_base_name)
 
