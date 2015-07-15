@@ -33,6 +33,7 @@ def close_conn(con):
 
 
 class DbTool(object):
+    
     def __init__(self, dbName):
         self.dbName = dbName
         
@@ -61,13 +62,7 @@ class DbTool(object):
         
         self.con.close()
         
-        
     
-    
-    
-
-
-
 
 if __name__ == '__main__':
     test_db = '1815035.FDB'
@@ -75,5 +70,9 @@ if __name__ == '__main__':
     mycon, mycur = connecFirebird(test_db)
     executeSqlFile(sqlfile, mycon, mycur)
     close_conn(mycon)
-
+    print '*'*10
+    x = DbTool(test_db)
+    x.dbConnection()
+    x.executeSqlFile(sqlfile)
+    x.close_connection()
 

@@ -15,14 +15,12 @@ class MyApp(QtGui.QMainWindow):
         self.my_init()
         
     def my_init(self):
-        
-        
+                
         self.sql_file_name = None
         QtCore.QObject.connect(self.ui.setDatabse_Button, QtCore.SIGNAL('clicked()'), self.getDBFileName)
         QtCore.QObject.connect(self.ui.testSelectButton, QtCore.SIGNAL('clicked()'), self.validSelect)
         QtCore.QObject.connect(self.ui.runButton, QtCore.SIGNAL('clicked()'), self.runUpdate)
-        QtCore.QObject.connect(self.ui.sqlFileButton, QtCore.SIGNAL('clicked()'), self.getSqlFileName)
-        
+        QtCore.QObject.connect(self.ui.sqlFileButton, QtCore.SIGNAL('clicked()'), self.getSqlFileName)        
         self.ui.r1.setChecked(True)
 
         
@@ -41,7 +39,7 @@ class MyApp(QtGui.QMainWindow):
         self.ui.sqlFileLabel.setText(old_lebel_text+file_sql_base_name)
 
     def validSelect(self):
-
+        
         self.SELECT = self.ui.select_text_edit.text()
         self.ui.selectLabel.setText(self.SELECT)
         print self.ui.r1.isChecked()
@@ -67,8 +65,7 @@ class MyApp(QtGui.QMainWindow):
             work_fbd.executeSqlFile(str(self.full_file_sql_path))
             
         work_fbd.close_connection()
-        
-        
+        QtGui.QMessageBox.information(self,'Info', ':D')            
 
 
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'updateFDB.ui'
+# Form implementation generated from reading ui file 'runApp.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -66,8 +66,12 @@ class Ui_UpdateDatabase(object):
         self.runButton = QtGui.QPushButton(self.verticalLayoutWidget)
         self.runButton.setObjectName(_fromUtf8("runButton"))
         self.verticalLayout.addWidget(self.runButton)
+        self.pushButton = QtGui.QPushButton(UpdateDatabase)
+        self.pushButton.setGeometry(QtCore.QRect(170, 290, 75, 23))
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
 
         self.retranslateUi(UpdateDatabase)
+        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), UpdateDatabase.close)
         QtCore.QMetaObject.connectSlotsByName(UpdateDatabase)
 
     def retranslateUi(self, UpdateDatabase):
@@ -82,4 +86,5 @@ class Ui_UpdateDatabase(object):
         self.r1.setText(_translate("UpdateDatabase", "query", None))
         self.r2.setText(_translate("UpdateDatabase", "select", None))
         self.runButton.setText(_translate("UpdateDatabase", "RUN", None))
+        self.pushButton.setText(_translate("UpdateDatabase", "exit", None))
 
