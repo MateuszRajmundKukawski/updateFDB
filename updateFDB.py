@@ -3,7 +3,7 @@ from PyQt4 import QtCore, QtGui
 
 from updateFDB_Ui import Ui_UpdateDatabase
 import fdbTools  as fdbt
-
+from fdbTools import DbTool
 
 class MyApp(QtGui.QMainWindow):
 
@@ -44,7 +44,7 @@ class MyApp(QtGui.QMainWindow):
         self.ui.selectLabel.setText(self.SELECT)
         print self.ui.r1.isChecked()
 
-    def runUpdate(self):
+    def runUpdate2(self):
         
         
         fdbcon, fdbcur = fdbt.connecFirebird(str(self.full_file_db_path))
@@ -53,6 +53,18 @@ class MyApp(QtGui.QMainWindow):
         else:
             fdbt.executeSqlFile(str(self.full_file_sql_path), fdbcon, fdbcur)
         fdbt.close_conn(fdbcon)
+        
+    def runUpdate(self):
+        
+        work_fbd = DbTool(str(self.full_file_db_path))
+        work_fbd.dbConnection()
+        if self.ui.r1.isChecked():
+            work_fbd.execute_select(str(self.SELECT))
+        elif self.ui.r2.isChecked():
+            work_fbd.executeSqlFile(str(self.full_file_sql_path))
+        work_fbd.close_connection()
+        
+        
 
 
 
