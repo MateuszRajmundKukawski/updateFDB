@@ -19,9 +19,19 @@ def execute_select(SELECT, con, cur):
         for row in cur:
             print row
     con.commit()
-    print 'end'
+    print 'commit'
+    
+def executeSqlFile(sql_file_name, con, cur):
+    
+    with open(sql_file_name) as f:
+        sql_query_list = (line.rstrip('\n') for line in f )
+        for row in sql_query_list:
+            execute_select(row, con, cur)
 
 
 
 if __name__ == '__main__':
-    main()
+    test_db = '1815035.FDB'
+    sqlfile = 'myquery.sql'
+    mycon, mycur = connecFirebird(test_db)
+    executeSqlFile(sqlfile, mycon, mycur)
