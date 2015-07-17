@@ -1,5 +1,5 @@
 import sys, os
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 
 
 from mrkdbtools.updateFDB_Ui import Ui_UpdateDatabase
@@ -64,6 +64,21 @@ class MyApp(QtGui.QMainWindow):
 
         work_fbd.close_connection()
         QtGui.QMessageBox.information(self,'Info', 'OK')
+        
+        
+    def keyPressEvent(self, e):
+
+        if e.key() == QtCore.Qt.Key_Escape:
+            self.close()
+        elif e.key() == QtCore.Qt.Key_Return:
+            self.runUpdate()
+        elif e.key() == QtCore.Qt.Key_D:
+            self.getDBFileName()
+        elif e.key() == QtCore.Qt.Key_S:
+            self.getSqlFileName()
+        elif e.key() == QtCore.Qt.Key_V:
+            self.validSelect()
+
 
 
 
